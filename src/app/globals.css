@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+/* ===========================================
+   THEME TOKENS
+=========================================== */
+
+@theme {
+  --color-primary: #7c3aed;
+  --color-primary-light: #8b5cf6;
+  --color-secondary: #3b82f6;
+  --color-accent: #06b6d4;
+  --color-success: #10b981;
+
+  --font-sans: var(--font-geist);
+  --font-heading: var(--font-space);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --shadow-glow: 0 0 40px rgba(124, 58, 237, .35);
+  --shadow-card: 0 10px 40px rgba(0,0,0,.18);
+}
+
+/* ===========================================
+   LIGHT THEME
+=========================================== */
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+
+  --card: rgba(255,255,255,.75);
+
+  --border: rgba(0,0,0,.08);
+
+  --muted: #64748b;
+
+  color-scheme: light;
+}
+
+/* ===========================================
+   DARK THEME
+=========================================== */
+
+.dark {
+  --background: #050816;
+  --foreground: #f8fafc;
+
+  --card: rgba(255,255,255,.06);
+
+  --border: rgba(255,255,255,.08);
+
+  --muted: #94a3b8;
+
+  color-scheme: dark;
+}
+
+/* ===========================================
+   GLOBAL RESET
+=========================================== */
+
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+*{
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--background);
+  color:var(--foreground);
+
+  font-family:var(--font-geist),sans-serif;
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+
+  transition:
+  background .35s ease,
+  color .35s ease;
+}
+
+/* ===========================================
+   TYPOGRAPHY
+=========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family:var(--font-space),sans-serif;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  cursor:pointer;
+  font:inherit;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+/* ===========================================
+   SCROLLBAR
+=========================================== */
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#7c3aed;
+  border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:#8b5cf6;
+}
+
+/* ===========================================
+   TEXT SELECTION
+=========================================== */
+
+::selection{
+  background:#7c3aed;
+  color:white;
+}
+
+/* ===========================================
+   GLASSMORPHISM
+=========================================== */
+
+.glass{
+  background:var(--card);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+
+  border:1px solid var(--border);
+
+  border-radius:20px;
+}
+
+/* ===========================================
+   CONTAINER
+=========================================== */
+
+.container-custom{
+  width:min(1280px,92%);
+  margin-inline:auto;
+}
+
+/* ===========================================
+   PREMIUM BUTTON
+=========================================== */
+
+.btn-primary{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:.5rem;
+
+  padding:.9rem 1.6rem;
+
+  border-radius:999px;
+
+  background:linear-gradient(
+  135deg,
+  #7c3aed,
+  #3b82f6
+  );
+
+  color:white;
+
+  transition:.35s;
+}
+
+.btn-primary:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:0 0 35px rgba(124,58,237,.45);
+}
+
+/* ===========================================
+   PREMIUM CARD
+=========================================== */
+
+.card{
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:24px;
+
+  backdrop-filter:blur(18px);
+
+  transition:.35s;
+}
+
+.card:hover{
+
+  transform:translateY(-8px);
+
+  box-shadow:0 20px 45px rgba(0,0,0,.2);
+}
+
+/* ===========================================
+   ANIMATIONS
+=========================================== */
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+.animate-float{
+animation:float 5s ease-in-out infinite;
+}
+
+/* ===========================================
+   BACKGROUND GRID
+=========================================== */
+
+.bg-grid{
+background-image:
+linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+
+background-size:40px 40px;
+}
